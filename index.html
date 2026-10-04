@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CordMap: what a spinal cord injury level means</title>
+<meta name="description" content="An interactive guide to spinal cord injury: pick an injury level and see which parts of the body are affected, what still works, the ASIA impairment grades and the main incomplete injury patterns.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2313202E'/%3E%3Crect x='9' y='3' width='6' height='4' rx='1.5' fill='%23CFE6E1'/%3E%3Crect x='9' y='8.5' width='6' height='4' rx='1.5' fill='%23CFE6E1'/%3E%3Crect x='9' y='14' width='6' height='3' rx='1.5' fill='%23E8A3B6'/%3E%3Crect x='9' y='18.5' width='6' height='3' rx='1.5' fill='%23E8A3B6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#explorer">Skip to the explorer</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#top" aria-label="CordMap, back to top">
+      <svg class="wordmark-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <rect class="wm-bg" width="24" height="24" rx="6"></rect>
+        <rect class="wm-ok" x="9" y="3" width="6" height="4" rx="1.5"></rect>
+        <rect class="wm-ok" x="9" y="8.5" width="6" height="4" rx="1.5"></rect>
+        <rect class="wm-hit" x="9" y="14" width="6" height="3" rx="1.5"></rect>
+        <rect class="wm-hit" x="9" y="18.5" width="6" height="3" rx="1.5"></rect>
+      </svg>
+      CordMap
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#explorer">Levels</a>
+      <a href="#grades"><span class="nav-long">ASIA grades</span><span class="nav-short">Grades</span></a>
+      <a href="#patterns">Patterns</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Intro -->
+  <section class="intro">
+    <div class="wrap">
+      <h1>The level of a spinal cord injury decides what still works.</h1>
+      <p class="intro-lede">Messages between the brain and body travel down the spinal cord. After an injury, the body below that point stops getting them. Pick a level on the spine to see what that means for breathing, hands, walking, bladder and blood pressure.</p>
+    </div>
+  </section>
+
+  <!-- Explorer -->
+  <section class="explorer" id="explorer" aria-label="Injury level explorer">
+    <div class="wrap explorer-grid">
+
+      <div class="ladder-col">
+        <p class="col-label" id="ladder-label">Injury level</p>
+        <div class="ladder" id="ladder" role="radiogroup" aria-labelledby="ladder-label"></div>
+      </div>
+
+      <figure class="body-col">
+        <svg class="body-map" id="body-map" viewBox="0 0 200 440" role="img" aria-labelledby="body-title">
+          <title id="body-title">Simplified body map. Areas below the injury level are hatched.</title>
+          <defs>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="6" height="6" class="hatch-bg"></rect>
+              <line x1="0" y1="0" x2="0" y2="6" class="hatch-line"></line>
+            </pattern>
+            <clipPath id="torso-clip">
+              <path d="M70,84 Q100,76 130,84 L138,96 L130,160 L127,215 L130,245 L70,245 L73,215 L70,160 L62,96 Z"></path>
+            </clipPath>
+          </defs>
+
+          <!-- Head and neck -->
+          <ellipse class="region" data-level="0" cx="100" cy="36" rx="21" ry="26"><title>Head and face (nerves straight from the brain)</title></ellipse>
+          <rect class="region" data-level="3" x="91" y="58" width="18" height="24" rx="4"><title>C3: neck</title></rect>
+
+          <!-- Torso bands, one per segment -->
+          <g clip-path="url(#torso-clip)">
+            <rect class="region" data-level="4" x="55" y="70" width="90" height="30"><title>C4: top of the chest and shoulders</title></rect>
+            <rect class="region" data-level="10" x="55" y="100" width="90" height="10"><title>T2</title></rect>
+            <rect class="region" data-level="11" x="55" y="110" width="90" height="9"><title>T3</title></rect>
+            <rect class="region" data-level="12" x="55" y="119" width="90" height="9"><title>T4: nipple line</title></rect>
+            <rect class="region" data-level="13" x="55" y="128" width="90" height="9"><title>T5</title></rect>
+            <rect class="region" data-level="14" x="55" y="137" width="90" height="9"><title>T6: bottom of the breastbone</title></rect>
+            <rect class="region" data-level="15" x="55" y="146" width="90" height="10"><title>T7</title></rect>
+            <rect class="region" data-level="16" x="55" y="156" width="90" height="10"><title>T8</title></rect>
+            <rect class="region" data-level="17" x="55" y="166" width="90" height="12"><title>T9</title></rect>
+            <rect class="region" data-level="18" x="55" y="178" width="90" height="14"><title>T10: belly button</title></rect>
+            <rect class="region" data-level="19" x="55" y="192" width="90" height="14"><title>T11</title></rect>
+            <rect class="region" data-level="20" x="55" y="206" width="90" height="16"><title>T12: groin crease</title></rect>
+            <rect class="region" data-level="21" x="55" y="222" width="90" height="23"><title>L1: groin</title></rect>
+          </g>
+          <path class="outline" d="M70,84 Q100,76 130,84 L138,96 L130,160 L127,215 L130,245 L70,245 L73,215 L70,160 L62,96 Z"></path>
+
+          <!-- Right arm (on the left of the picture) -->
+          <polygon class="region" data-level="5" points="60,88 67,94 50,181 42,180"><title>C5: outer upper arm</title></polygon>
+          <polygon class="region" data-level="9" points="67,94 74,100 58,182 50,181"><title>T1: inner upper arm</title></polygon>
+          <polygon class="region" data-level="6" points="42,180 50,181 39,272 32,272"><title>C6: outer forearm and thumb side</title></polygon>
+          <polygon class="region" data-level="8" points="50,181 58,182 46,272 39,272"><title>C8: inner forearm and little finger side</title></polygon>
+          <ellipse class="region" data-level="7" cx="38" cy="292" rx="10" ry="20"><title>C7: hand and middle finger</title></ellipse>
+
+          <!-- Left arm (on the right of the picture) -->
+          <polygon class="region" data-level="5" points="140,88 133,94 150,181 158,180"><title>C5: outer upper arm</title></polygon>
+          <polygon class="region" data-level="9" points="133,94 126,100 142,182 150,181"><title>T1: inner upper arm</title></polygon>
+          <polygon class="region" data-level="6" points="158,180 150,181 161,272 168,272"><title>C6: outer forearm and thumb side</title></polygon>
+          <polygon class="region" data-level="8" points="150,181 142,182 154,272 161,272"><title>C8: inner forearm and little finger side</title></polygon>
+          <ellipse class="region" data-level="7" cx="162" cy="292" rx="10" ry="20"><title>C7: hand and middle finger</title></ellipse>
+
+          <!-- Right leg (on the left of the picture) -->
+          <polygon class="region" data-level="22" points="72,245 99,245 97,292 76,292"><title>L2: upper front of the thigh</title></polygon>
+          <polygon class="region" data-level="23" points="76,292 97,292 95,338 80,338"><title>L3: lower thigh and inner knee</title></polygon>
+          <polygon class="region" data-level="24" points="80,338 95,338 93,405 83,405"><title>L4: shin and inner ankle</title></polygon>
+          <polygon class="region" data-level="25" points="82,405 94,405 98,418 96,424 76,424 78,416"><title>L5: top of the foot</title></polygon>
+
+          <!-- Left leg (on the right of the picture) -->
+          <polygon class="region" data-level="22" points="128,245 101,245 103,292 124,292"><title>L2: upper front of the thigh</title></polygon>
+          <polygon class="region" data-level="23" points="124,292 103,292 105,338 120,338"><title>L3: lower thigh and inner knee</title></polygon>
+          <polygon class="region" data-level="24" points="120,338 105,338 107,405 117,405"><title>L4: shin and inner ankle</title></polygon>
+          <polygon class="region" data-level="25" points="118,405 106,405 102,418 104,424 124,424 122,416"><title>L5: top of the foot</title></polygon>
+
+          <!-- Landmarks -->
+          <circle class="landmark" cx="86" cy="123" r="1.8"><title>Nipple line (T4)</title></circle>
+          <circle class="landmark" cx="114" cy="123" r="1.8"><title>Nipple line (T4)</title></circle>
+          <circle class="landmark" cx="100" cy="185" r="2"><title>Belly button (T10)</title></circle>
+        </svg>
+
+        <div class="back-areas">
+          <div class="back-area" id="area-s1"><span class="swatch"></span>S1: sole and outer heel</div>
+          <div class="back-area" id="area-s2"><span class="swatch"></span>S2&ndash;S5: back of the thighs, buttocks and around the anus</div>
+        </div>
+        <figcaption class="map-key">
+          <span><span class="key-swatch key-ok"></span>Works normally</span>
+          <span><span class="key-swatch key-hit"></span>Affected (below the injury)</span>
+        </figcaption>
+      </figure>
+
+      <div class="info-col" aria-live="polite">
+        <div class="level-head">
+          <span class="level-code" id="lvl-code">C6</span>
+          <div>
+            <p class="level-name" id="lvl-name">6th cervical segment</p>
+            <p class="level-tag" id="lvl-tag">Tetraplegia</p>
+          </div>
+        </div>
+
+        <label class="range-label" for="lvl-range">Move through the levels</label>
+        <input type="range" id="lvl-range" min="1" max="29" step="1" value="6">
+
+        <p class="level-summary" id="lvl-summary"></p>
+
+        <dl class="keys">
+          <div><dt>Key muscle at this level</dt><dd id="lvl-muscle"></dd></div>
+          <div><dt>Key sensation point</dt><dd id="lvl-sensory"></dd></div>
+        </dl>
+
+        <ul class="rows" id="rows"></ul>
+
+        <p class="info-note">Typical for a <strong>complete</strong> injury (ASIA A) at this level. Incomplete injuries vary a lot, and every person's recovery and abilities are different.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASIA grades -->
+  <section class="section grades" id="grades">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How much is affected: the ASIA grades</h2>
+        <p>The level says <em>where</em> the injury is. The ASIA Impairment Scale (AIS) says <em>how complete</em> it is, from A (complete) to E (normal). The key test is whether anything works in the lowest part of the cord, around the anus (segments S4&ndash;S5).</p>
+      </div>
+
+      <div class="grades-grid">
+        <ol class="grade-list" id="grade-list">
+          <li data-grade="A">
+            <span class="grade-letter">A</span>
+            <div>
+              <h3>Complete</h3>
+              <p>No sensation or movement at all in S4&ndash;S5, the lowest sacral segments.</p>
+            </div>
+          </li>
+          <li data-grade="B">
+            <span class="grade-letter">B</span>
+            <div>
+              <h3>Sensory incomplete</h3>
+              <p>Some sensation is kept below the injury, including at S4&ndash;S5, but no movement more than three levels below the motor level.</p>
+            </div>
+          </li>
+          <li data-grade="C">
+            <span class="grade-letter">C</span>
+            <div>
+              <h3>Motor incomplete</h3>
+              <p>Some movement is kept below the injury, but fewer than half of the key muscles below the level can move against gravity.</p>
+            </div>
+          </li>
+          <li data-grade="D">
+            <span class="grade-letter">D</span>
+            <div>
+              <h3>Motor incomplete</h3>
+              <p>Movement is kept below the injury, and at least half of the key muscles below the level can move against gravity.</p>
+            </div>
+          </li>
+          <li data-grade="E">
+            <span class="grade-letter">E</span>
+            <div>
+              <h3>Normal</h3>
+              <p>Sensation and movement are normal in someone who previously had deficits.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="helper panel" id="helper">
+          <h3>Work out the grade</h3>
+          <p class="helper-sub">Answer the questions an examining doctor would ask.</p>
+          <div class="helper-body" id="helper-body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Incomplete patterns -->
+  <section class="section patterns" id="patterns">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Incomplete injuries follow patterns</h2>
+        <p>When only part of the cord is damaged, the effects depend on which pathways are hit. Three pathways matter most, and they cross to the other side at different points, which is why some patterns affect each side differently.</p>
+      </div>
+
+      <div class="patterns-grid">
+        <div>
+          <div class="tabs" role="tablist" aria-label="Incomplete injury patterns" id="tabs"></div>
+          <figure class="cord-figure">
+            <svg class="cord" id="cord" viewBox="0 0 320 232" role="img" aria-labelledby="cord-title">
+              <title id="cord-title">Cross-section of the spinal cord. The damaged pathways are hatched.</title>
+              <ellipse class="cord-white" cx="160" cy="116" rx="140" ry="100"></ellipse>
+              <!-- Dorsal columns: wedges either side of the midline at the back -->
+              <path class="tract t-dc" id="dcL" d="M159,20 L159,98 L146,92 L131,46 C129,36 134,26 142,22 Q151,19 159,20 Z"></path>
+              <path class="tract t-dc" id="dcR" d="M161,20 L161,98 L174,92 L189,46 C191,36 186,26 178,22 Q169,19 161,20 Z"></path>
+              <!-- Lateral corticospinal tracts -->
+              <ellipse class="tract t-cst" id="cstL" cx="76" cy="92" rx="25" ry="29"></ellipse>
+              <ellipse class="tract t-cst" id="cstR" cx="244" cy="92" rx="25" ry="29"></ellipse>
+              <!-- Spinothalamic tracts -->
+              <ellipse class="tract t-stt" id="sttL" cx="66" cy="152" rx="23" ry="23"></ellipse>
+              <ellipse class="tract t-stt" id="sttR" cx="254" cy="152" rx="23" ry="23"></ellipse>
+              <!-- Grey matter: the butterfly, one half per side -->
+              <path class="grey" id="greyL" d="M160,104 C151,104 146,100 143,93 L129,46 C126,37 118,35 116,43 L124,96 C118,102 108,105 102,113 C94,124 91,141 95,157 C99,175 117,186 132,179 C145,172 150,151 152,134 C154,128 156,126 160,126 Z"></path>
+              <path class="grey" id="greyR" d="M160,104 C169,104 174,100 177,93 L191,46 C194,37 202,35 204,43 L196,96 C202,102 212,105 218,113 C226,124 229,141 225,157 C221,175 203,186 188,179 C175,172 170,151 168,134 C166,128 164,126 160,126 Z"></path>
+              <circle class="canal" cx="160" cy="115" r="3"></circle>
+              <text class="cord-label" x="160" y="11" text-anchor="middle">Back</text>
+              <text class="cord-label" x="160" y="230" text-anchor="middle">Front</text>
+              <text class="cord-label side-label" id="side-label" x="44" y="24" text-anchor="middle">Injured side</text>
+            </svg>
+            <figcaption class="cord-key">
+              <span><span class="key-swatch k-dc"></span>Dorsal columns: vibration, position sense, fine touch (same side)</span>
+              <span><span class="key-swatch k-cst"></span>Corticospinal tract: movement (same side)</span>
+              <span><span class="key-swatch k-stt"></span>Spinothalamic tract: pain and temperature (opposite side)</span>
+              <span><span class="key-swatch k-grey"></span>Grey matter: nerve cells for this level</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="pattern-info panel" id="pattern-info" role="tabpanel" aria-live="polite"></div>
+      </div>
+
+      <p class="patterns-note">Injuries at the very bottom of the cord (<strong>conus medullaris</strong>) or to the nerve roots below it (<strong>cauda equina</strong>) are different again: they mainly affect the legs, bladder, bowel and sexual function, often with floppy rather than stiff muscles.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="wrap narrow">
+      <h2>About CordMap</h2>
+      <div class="about-grid">
+        <div class="about-mark" aria-hidden="true">S</div>
+        <div class="about-body">
+          <p>I'm Suriya, a student in the UK working toward a medicine application, with neurosurgery as my long-term goal. I built CordMap to make one idea clear: in spinal cord injury, a few centimetres can be the difference between breathing on your own or not, or using your hands or not.</p>
+          <p>It connects to my other work: a systematic review of surgical timing in acute traumatic spinal cord injury, and a comparison of machine-learning methods for motor decoding in brain&ndash;computer interfaces for people with chronic spinal cord injury. I also built <a href="https://scribeassist.github.io/clinidraft/">Clinidraft</a>, a prototype that drafts clinical letters from ward-round notes.</p>
+        </div>
+      </div>
+
+      <div class="sources">
+        <h3>Sources and limits</h3>
+        <ul>
+          <li>Key muscles, sensation points and the AIS grades follow the International Standards for Neurological Classification of Spinal Cord Injury (ISNCSCI), published by the <a href="https://asia-spinalinjury.org/">American Spinal Injury Association</a>.</li>
+          <li>Typical function by level is based on the Consortium for Spinal Cord Medicine's guidance on expected outcomes after complete injury (<a href="https://pva.org/">Paralyzed Veterans of America</a>), written here in plain English.</li>
+          <li>The body map is simplified. Real dermatomes overlap and vary between people.</li>
+        </ul>
+        <p class="disclaimer">CordMap is for learning only. It is not a diagnostic tool and must not be used to make decisions about anyone's care.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>CordMap is an educational project, not a clinical tool.</span>
+    <span>Built by Suriya, 2026</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
